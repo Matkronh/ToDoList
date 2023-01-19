@@ -2,6 +2,7 @@ let toDoItems = []
 
 const heroDiv = document.getElementById("hero")
 const toDoListBox = document.createElement("div")
+const toDoListItemsDiv = document.createElement("div")
 const siteTitle = document.createElement("h1")
 siteTitle.textContent = "Your own personal To-Do-List"
 
@@ -13,7 +14,8 @@ btnAddToDo.textContent = ("Submit ToDo")
 
 
 heroDiv.append(
-    toDoListBox    
+    toDoListBox,
+    toDoListItemsDiv   
 )
 toDoListBox.append(
     siteTitle,
@@ -21,12 +23,6 @@ toDoListBox.append(
     btnAddToDo
 )
 
-const toDoListItemsDiv = document.createElement("div")
-toDoListItemsDiv.setAttribute("id", "to-do-list-items-div")
-
-heroDiv.append(
-    toDoListItemsDiv
-)
 
 
 
@@ -34,5 +30,23 @@ heroDiv.append(
 btnAddToDo.addEventListener ("click", myFunction);
 
 function myFunction(){
-    console.log("123")
+    const toDoTextElement = toDoInputField.value
+    if (!toDoTextElement) return
+    const currentTime = new Date()
+    const currentTimeStamp = currentTime.getTime()
+    toDoItems.push({
+        name: toDoTextElement,
+        id: currentTimeStamp
+    })
+
+    myFunction2(toDoTextElement, currentTimeStamp)
+    toDoInputField.value = " "
 }
+
+function myFunction2(toDoTextElement, currentTimeStamp){
+    const toDoItemElement = document.createElement("p")
+    toDoItemElement.textContent = toDoTextElement
+    toDoListItemsDiv.append(toDoItemElement)
+}
+
+
