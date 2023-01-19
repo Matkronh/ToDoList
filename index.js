@@ -19,6 +19,6 @@ toDoListBox.append(
 const toDoListItemsDiv = document.createElement("div")
 toDoListItemsDiv.setAttribute("id", "to-do-list-items-div")
 
-Document.body.append(
+document.body.appendChild(
     toDoListItemsDiv
 )
