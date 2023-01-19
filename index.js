@@ -1,6 +1,7 @@
 let toDoItems = []
-const toDoListBox = document.getElementById("to-do-list-box")
-console.log("hi")
+
+const heroDiv = document.getElementById("hero")
+const toDoListBox = document.createElement("div")
 const siteTitle = document.createElement("h1")
 siteTitle.textContent = "Your own personal To-Do-List"
 
@@ -9,9 +10,11 @@ toDoInputField.placeholder = ("Add to do's here")
 
 const btnAddToDo = document.createElement("button")
 btnAddToDo.textContent = ("Submit ToDo")
-btnAddToDo.setAttribute("id", "btn-add-to-do")
-const btnSubmit = document.getElementById("btn-add-to-do")
 
+
+heroDiv.append(
+    toDoListBox    
+)
 toDoListBox.append(
     siteTitle,
     toDoInputField,
@@ -21,11 +24,15 @@ toDoListBox.append(
 const toDoListItemsDiv = document.createElement("div")
 toDoListItemsDiv.setAttribute("id", "to-do-list-items-div")
 
-document.body.appendChild(
+heroDiv.append(
     toDoListItemsDiv
 )
 
-btnSubmit.addEventListener("click", function(){
-    console.log("button is clicked")
-})
 
+
+
+btnAddToDo.addEventListener ("click", myFunction);
+
+function myFunction(){
+    console.log("123")
+}
