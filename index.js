@@ -29,23 +29,25 @@ toDoListBox.append(
 
 btnAddToDo.addEventListener ("click", myFunction);
 
-function myFunction(){
+function addToDoFunction(){
     const toDoTextElement = toDoInputField.value
     if (!toDoTextElement) return
     const currentTime = new Date()
     const currentTimeStamp = currentTime.getTime()
+    const currentDateStamp = currentTime.getDate()
     toDoItems.push({
         name: toDoTextElement,
-        id: currentTimeStamp
+        id: currentTimeStamp,
+        date: currentDateStamp
     })
 
-    myFunction2(toDoTextElement, currentTimeStamp)
+    displayToDoFunction(toDoTextElement, currentTimeStamp)
     toDoInputField.value = " "
 }
 
-function myFunction2(toDoTextElement, currentTimeStamp){
+function displayToDoFunction(toDoTextElement, currentTimeStamp, currentDateStamp){
     const toDoItemElement = document.createElement("p")
-    toDoItemElement.textContent = toDoTextElement
+    toDoItemElement.textContent = toDoTextElement + currentDateStamp
     toDoListItemsDiv.append(toDoItemElement)
 }
 
