@@ -6,8 +6,8 @@ const toDoListItemsDiv = document.createElement("div")
 const siteTitle = document.createElement("h1")
 siteTitle.textContent = "Your own personal To-Do-List"
 
-const toDoInputField = document.createElement("input")
-toDoInputField.placeholder = ("Add to do's here")
+const textInputField = document.createElement("input")
+textInputField.placeholder = ("Add to do's herdsae")
 
 const btnAddToDo = document.createElement("button")
 btnAddToDo.textContent = ("Submit ToDo")
@@ -19,7 +19,7 @@ heroDiv.append(
 )
 toDoListBox.append(
     siteTitle,
-    toDoInputField,
+    textInputField,
     btnAddToDo
 )
 
@@ -27,26 +27,26 @@ toDoListBox.append(
 
 
 
-btnAddToDo.addEventListener ("click", displayToDoFunction);
+btnAddToDo.addEventListener ("click", addToDoFunction);
 
 function addToDoFunction(){
-    const toDoTextElement = toDoInputField.value
-    if (!toDoTextElement) return
+    const textElement = textInputField.value
+    if (!textElement) return
     const currentTime = new Date()
     const currentTimeStamp = currentTime.getTime()
     toDoItems.push({
-        name: toDoTextElement,
+        name: textElement,
         id: currentTimeStamp
     })
 
-    displayToDoFunction(toDoTextElement, currentTimeStamp)
-    toDoInputField.value = " "
+    displayToDoFunction(textElement)
+    textInputField.value = " "
 }
 
-function displayToDoFunction(toDoTextElement, currentTimeStamp){
-    const toDoItemElement = document.createElement("p")
-    toDoItemElement.textContent = toDoTextElement
-    toDoListItemsDiv.append(toDoItemElement)
+function displayToDoFunction(textElement){
+    const paragraphElement = document.createElement("p")
+    paragraphElement.textContent = textElement
+    toDoListItemsDiv.append(paragraphElement)
 }
 
 
