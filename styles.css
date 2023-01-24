@@ -13,6 +13,17 @@ body{
     margin-right: 55px;
 }
 
+.ID4{
+    display: flex;
+    justify-content:right;
+    background-color: rgba(2, 136, 180, 0.589);
+    opacity: 100%;
+    margin-top: 20px;
+    border-radius: 25px;
+    border-style: double;
+    margin-right: 55px;
+}
+
 .button2{
     height: 35px;
     margin-top: 16px;
@@ -59,7 +70,9 @@ p{
 }
 
 #hero{
-    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/seamless-texture-poker-table-green-cover_443598-210.jpg?raw=true);
+    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/e.jpg?raw=true);
+    background-size: 80%;
+    background-position-x: center;
     width: 550px;
     border-radius: 25px;
     border-style: inset;
@@ -68,7 +81,7 @@ p{
 
 h1{
     text-align: center;
-    color: rgb(246, 219, 133);
+    color: rgb(208, 255, 0);
     text-shadow: 1cm, 4, 5, 10;
     text-decoration:underline;
     background-color: rgba(255, 238, 107, 0.467);

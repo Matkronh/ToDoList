@@ -1,4 +1,13 @@
 let toDoItems = []
+
+let toDoFrames = [
+    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-1.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-2.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-3.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-4.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-5.jpg?raw=true"
+]
+
 let numberGoUp = 0
 
 const heroDiv = document.getElementById("hero")
@@ -10,7 +19,7 @@ const siteTitle = document.createElement("h1")
 siteTitle.textContent = "Your own personal To-Do-List"
 
 const textInputField = document.createElement("input")
-textInputField.placeholder = ("Add to do's herdsae")
+textInputField.placeholder = (" Add to do's here")
 
 const btnAddToDo = document.createElement("button")
 btnAddToDo.textContent = ("Submit ToDo")
@@ -26,10 +35,6 @@ toDoListBox.append(
     textInputField,
     btnAddToDo
 )
-
-
-
-
 
 btnAddToDo.addEventListener ("click", addToDoFunction);
 
@@ -53,14 +58,24 @@ function addToDoFunction(){
 }
 
 function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, currentYearStamp, currentTimeStamp){
-    numberGoUp = numberGoUp + 1
     const paragraphElement = document.createElement("p")
     const removeButton = document.createElement("button")
     const itemDiv = document.createElement("div")
-    itemDiv.setAttribute("class", "ID3")
-    const idForRemoval = currentTimeStamp
+    
     removeButton.textContent = ("Remove")
-    removeButton.setAttribute("class", "button2")   
+    removeButton.setAttribute("class", "button2")
+    paragraphElement.textContent = "• " + textElement + " - " + currentDateStamp + "." + currentMonthStamp + "." + currentYearStamp
+    toDoListItemsDiv.append(itemDiv)
+    itemDiv.setAttribute("class", "ID3")
+
+    let bgImg = toDoFrames[Math.floor(Math.random()*5)]
+
+    
+    itemDiv.style.backgroundImage = `url(${bgImg})`
+    itemDiv.style.backgroundSize = "80%"
+    itemDiv.append(paragraphElement, removeButton)
+
+    const idForRemoval = currentTimeStamp 
     removeButton.addEventListener("click", function(){
         paragraphElement.remove()
         removeButton.remove()
@@ -69,9 +84,7 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
         const indexTest = toDoItems.findIndex((value) => value.id === idForRemoval)
         toDoItems.splice(indexTest, 1)
     })
-    paragraphElement.textContent = "• " + textElement + " - " + currentDateStamp + "." + currentMonthStamp + "." + currentYearStamp
-    toDoListItemsDiv.append(itemDiv)
-    itemDiv.append(paragraphElement, removeButton)
+    
     console.log(toDoItems)
 }
 
