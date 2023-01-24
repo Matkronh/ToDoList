@@ -1,4 +1,5 @@
 let toDoItems = []
+
 /* button styling array */
 let toDoFrames = [
     "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-1.jpg?raw=true",
@@ -33,6 +34,19 @@ toDoListBox.append(
     textInputField,
     btnAddToDo
 )
+///////////////////////////////////////////////////////////
+
+const localToDoItems = "toDoItems"
+
+function updateLocalStorage(){
+    localStorage.setItem(localToDoItems, JSON.stringify(toDoItems))
+}
+
+function getLocalStorage(){
+    toDoItems = JSON.parse(localStorage.getItem(localToDoItems)) || []
+}
+
+getLocalStorage()
 
 /* 2 ways to enter to-do items, click and enter */
 
@@ -58,8 +72,14 @@ function addToDoFunction(){
 
     toDoItems.push({
         name: textElement,
-        id: currentTimeStamp
+        id: currentTimeStamp,
+        fav: false,
+        currentDate: currentDateStamp,
+        currentMonth: currentMonthStamp,
+        currentYear: currentYearStamp
     })
+
+    updateLocalStorage()
 
     displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, currentYearStamp, currentTimeStamp)
     textInputField.value = ""
@@ -84,6 +104,7 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
     favouriteButton.setAttribute("class","fa-regular fa-star iUnfavourited")
 
     let favourited = true
+    let idForRemoval = currentTimeStamp
 
     toDoListItemsDiv.append(itemDiv)
 
@@ -100,10 +121,12 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
             favouriteButton.setAttribute("class", "fa-solid fa-star iFavourited")
             favourited = false
             toDoListBox.append(itemDiv)
+            toDoItems.fav = true
         } else if (!favourited){
             favouriteButton.setAttribute("class","fa-regular fa-star iUnfavourited")
             favourited = true
             toDoListItemsDiv.append(itemDiv)
+            toDoItems.fav = false
         }
     })
 
@@ -115,8 +138,18 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
 
         const indexTest = toDoItems.findIndex((value) => value.id === idForRemoval)
         toDoItems.splice(indexTest, 1)
+        updateLocalStorage()
     })
 }
 
 
+toDoItems.forEach((toDoItems) => {
+    if (toDoItems.fav) displayToDoFunction(toDoItems.name, toDoItems.currentDate, toDoItems.currentMonth, toDoItems.currentYear)
+    
+    else displayToDoFunction(toDoItems.name, toDoItems.currentDate, toDoItems.currentMonth, toDoItems.currentYear)
+  })
 
+console.log(toDoItems)
+
+
+/* fikse favourite button */
