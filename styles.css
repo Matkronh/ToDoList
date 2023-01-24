@@ -37,6 +37,7 @@ body{
     width: 120px;
     font-weight: 700;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 .button1{
@@ -51,6 +52,7 @@ body{
     font-size: 14px;
     width: 140px;
     font-weight: 600;
+    margin-left: 10px;
 }
 
 div{
@@ -98,4 +100,26 @@ input{
     height: 25px;
     border-radius: 10px;
     border-style: ridge;
+}
+.iFavourited{
+    color: yellow;
+    font-size: 30px;
+    margin-top: 19px;
+    margin-right: 10px;
+}
+
+.iUnfavourited{
+    font-size: 30px;
+    margin-top: 19px;
+    margin-right: 10px;
+    color: white;
+}
+.iUnfavourited:hover{
+    font-size: 32px;
+    opacity: 50%;
+}
+
+.iFavourited:hover{
+    font-size: 32px;
+    opacity: 50%;
 }
