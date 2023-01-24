@@ -1,11 +1,11 @@
 let toDoItems = []
 
 let toDoFrames = [
-    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-1.jpg?raw=true",
-    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-2.jpg?raw=true",
-    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-3.jpg?raw=true",
-    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-4.jpg?raw=true",
-    "https://github.com/Matkronh/ToDoList/blob/main/backgrounsetc-starfield-5.jpg?raw=true"
+    "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-1.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-2.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-3.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-4.jpg?raw=true",
+    "https://github.com/Matkronh/ToDoList/blob/main/imgs/backgrounsetc-starfield-5.jpg?raw=true"
 ]
 
 let numberGoUp = 0

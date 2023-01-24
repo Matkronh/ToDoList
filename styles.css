@@ -1,5 +1,5 @@
 body{
-    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/seamless%20space.PNG?raw=true);
+    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/imgs/seamless%20space.PNG?raw=true);
 }
 
 .ID3{
@@ -71,7 +71,7 @@ p{
 }
 
 #hero{
-    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/e.jpg?raw=true);
+    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/imgs/e.jpg?raw=true);
     background-size: 80%;
     background-position-x: center;
     width: 550px;
@@ -85,7 +85,7 @@ h1{
     color: rgb(0, 0, 0);
     text-shadow: 1cm, 4, 5, 10;
     text-decoration:underline;
-    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/starfield.jpg?raw=true);
+    background-image: url(https://github.com/Matkronh/ToDoList/blob/main/imgs/starfield.jpg?raw=true);
     border-radius: 35px;
     padding: 10px;
     padding-bottom: 15px;
