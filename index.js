@@ -103,8 +103,8 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
     const favouriteButton = document.createElement("i")
     favouriteButton.setAttribute("class","fa-regular fa-star iUnfavourited")
 
-    let favourited = true
     let idForRemoval = currentTimeStamp
+    let favourited = false 
 
     toDoListItemsDiv.append(itemDiv)
 
@@ -117,17 +117,18 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
 
     /* Button to favourite tasks that require more urgent action, which brings the task to the top */
     favouriteButton.addEventListener("click", function(){
-        if (favourited){
+        if (!favourited){
             favouriteButton.setAttribute("class", "fa-solid fa-star iFavourited")
-            favourited = false
             toDoListBox.append(itemDiv)
-            toDoItems.fav = true
-        } else if (!favourited){
-            favouriteButton.setAttribute("class","fa-regular fa-star iUnfavourited")
+            console.log(toDoItems)
             favourited = true
+        } else if (favourited){
+            favouriteButton.setAttribute("class","fa-regular fa-star iUnfavourited")
             toDoListItemsDiv.append(itemDiv)
-            toDoItems.fav = false
+            console.log(toDoItems)
+            favourited = false
         }
+        updateLocalStorage()
     })
 
     /* Button to remove a to-do list item once finished, I did not implement a completed button since it felt redundant */
@@ -143,11 +144,21 @@ function displayToDoFunction(textElement, currentDateStamp, currentMonthStamp, c
 }
 
 
-toDoItems.forEach((toDoItems) => {
+/*toDoItems.forEach((toDoItems) => {
     if (toDoItems.fav) displayToDoFunction(toDoItems.name, toDoItems.currentDate, toDoItems.currentMonth, toDoItems.currentYear)
     
     else displayToDoFunction(toDoItems.name, toDoItems.currentDate, toDoItems.currentMonth, toDoItems.currentYear)
-  })
+  })*/
+
+
+toDoItems.forEach(function (toDoItems){
+        displayToDoFunction(toDoItems.name, toDoItems.currentDate, toDoItems.currentMonth, toDoItems.currentYear)
+            if (toDoItems.fav = true) 
+            {
+            
+            }
+        console.log("favourited")
+})
 
 console.log(toDoItems)
 
